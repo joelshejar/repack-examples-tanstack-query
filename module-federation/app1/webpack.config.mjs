@@ -223,6 +223,18 @@ export default (env) => {
             },
           ],
         },
+        {
+          include: [
+              /node_modules(.*[/\\])+@tanstack/,
+          ],
+          test: /\.(js|jsx|tsx|ts|cjs)$/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              plugins: [['@babel/plugin-transform-private-methods', { loose: true }]],
+            },
+          },
+        },
       ],
     },
     plugins: [
